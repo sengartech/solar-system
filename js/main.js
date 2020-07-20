@@ -26,6 +26,10 @@ function init() {
 
   // to move scene with mouse.
   controls = new THREE.OrbitControls(camera, renderer.domElement);
+  // only enabling zoom and disabling rotate and pan.
+  controls.enableZoom = true;
+  controls.enableRotate = false;
+  controls.enablePan = false;
 
   drawObjects();
 } // end init;
