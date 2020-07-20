@@ -1,0 +1,15 @@
+
+Third party library used:
+
+name: three.js
+description: used to render scene, objects, camera etc.
+link: https://threejs.org/
+
+name: orbitControls.js
+description: to move the scene with mouse and click buttons.
+link: https://www.jsdelivr.com/package/npm/three-orbitcontrols
+
+All textures images are taken from:
+link: https://www.solarsystemscope.com/textures
+link: https://www.flickr.com/photos/sieunhangiaitri/2817931329
+
