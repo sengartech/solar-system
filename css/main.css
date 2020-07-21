@@ -8,13 +8,3 @@ canvas {
   display: block;
   background-image: url('../assets/stars.jpg');
 }
-
-#info {
-  color: #ffffff;
-	position: absolute;
-  top: 20px;
-	width: 100%;
-	text-align: left;
-	z-index: 100;
-	display: block;
-}
