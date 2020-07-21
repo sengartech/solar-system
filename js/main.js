@@ -1,5 +1,5 @@
 // initializing variables.
-let scene, camera, renderer, controls, pointLight, ambientLight, sun, planetList = [], saturnRing;
+let scene, camera, renderer, controls, pointLight, sun, planetList = [], saturnRing;
 let baseDistanceFromSun = 30;
 
 /**
@@ -40,22 +40,22 @@ function init() {
 function drawObjects() {
 
   // setting up point light.
-  pointLight = new THREE.PointLight(0xff0000, 1, 100);
-  // pointLight.position.set(0, 0, 0);
+  pointLight = new THREE.PointLight(0xffffff, 1, 500);
+  pointLight.position.set(0, 0, 0);
   pointLight.castShadow = true;
   scene.add(pointLight);
 
   // setting up ambient light
-  // ambientLight = new THREE.AmbientLight(0xaaaaaa);
+  // let ambientLight = new THREE.AmbientLight(0xffffff);
   // scene.add(ambientLight);
 
   // draw sun.
   let sunMaterial = new THREE.MeshLambertMaterial({
-    color: 0xffffff,
     emissiveMap: new THREE.TextureLoader().load("./assets/sun.jpg"),
     emissive: 0xffffff
   });
   sun = createSphere(sunMaterial, 6, 50); // params: material, radius, segments.
+  sun.position.set(0, 0, 0);
   scene.add(sun);
 
   // creating orbits and planets.
@@ -95,7 +95,6 @@ function drawObjects() {
 function createSphere(material, radius, segment) {
   let geometry = new THREE.SphereGeometry(radius, segment, segment); // params: radius, widthSegment, heightSegment.
   let sphereMesh = new THREE.Mesh(geometry, material);
-  sphereMesh.castShadow = true;
   return sphereMesh;
 } // end createSphere.
 
@@ -127,8 +126,7 @@ function createSaturnRing(fromX) {
  * function to set animations and rate per seconds.
  */
 function animate() {
-
-  pointLight.position.copy(sun.position);
+  // updating controls.
   controls.update();
 
   // rotate and revolve.
